@@ -2,7 +2,7 @@ import { RouteObject, createBrowserRouter } from "react-router-dom";
 import Layout from "../shared/components/Layout/Layout.component";
 import { NotFound } from "../pages/NotFound";
 import { Dashboard } from "../pages/Dashboard";
-import { Todos } from "../pages/Todos";
+import { TodoForm, Todos } from "../pages/Todos";
 
 const routes: RouteObject[] = [
     {
@@ -15,7 +15,20 @@ const routes: RouteObject[] = [
             },
             {
                 path: "todos",
-                Component: Todos
+                children: [
+                    {
+                        index: true,
+                        Component: Todos
+                    },
+                    {
+                        path: 'form',
+                        Component: TodoForm
+                    },
+                    {
+                        path: 'form/:id',
+                        Component: TodoForm
+                    }
+                ]
             }
         ],
     },
