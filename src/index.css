@@ -4,3 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::before, *::after {
+    @apply font-latto
+}
